@@ -6,6 +6,8 @@ spring:
     url: jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
     username: root
     password: admin
+  redis:
+    timeout: 3000ms
 
 mybatis:
   mapper-locations:
@@ -18,3 +20,10 @@ logging:
         mall:
           mbg:
             mapper: debug
+
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode"
+    expire:
+      authCode: 120
