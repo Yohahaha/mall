@@ -8,6 +8,13 @@ spring:
     password: admin
   redis:
     timeout: 3000ms
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      cluster-nodes: localhost:9300
+      cluster-name: elasticsearch
+
 
 mybatis:
   mapper-locations:

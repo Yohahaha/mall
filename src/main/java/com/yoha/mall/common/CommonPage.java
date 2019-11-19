@@ -2,6 +2,7 @@ package com.yoha.mall.common;
 
 import com.github.pagehelper.PageInfo;
 import lombok.Data;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -29,6 +30,19 @@ public class CommonPage<T> {
         result.setPageSize(page.getPageSize());
         result.setTotalPage(page.getPages());
         result.setTotal(page.getTotal());
+        return result;
+    }
+
+    /**
+     * 将Spring Data分页后的list转成分页信息
+     */
+    public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
+        CommonPage<T> result = new CommonPage<>();
+        result.setList(pageInfo.getContent());
+        result.setPageNum(pageInfo.getNumber());
+        result.setPageSize(pageInfo.getSize());
+        result.setTotalPage(pageInfo.getTotalPages());
+        result.setTotal(pageInfo.getTotalElements());
         return result;
     }
 }
