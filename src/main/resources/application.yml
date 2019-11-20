@@ -14,7 +14,10 @@ spring:
         enabled: true
       cluster-nodes: localhost:9300
       cluster-name: elasticsearch
-
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mall-port
 
 mybatis:
   mapper-locations:
